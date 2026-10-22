@@ -14,13 +14,13 @@ FONT = ImageFont.truetype("C:/Windows/Fonts/timesbd.ttf", 19)
 _d = ImageDraw.Draw(Image.new("RGB", (5, 5)))
 STYLE = "font=Times New Roman;bold=1;black=0;italic=0;ul=0;charset=0;pitch=18;fontsz=140;"
 DIAGRAM = "ПС «Онлайн сервис услуг турагентства»"
-BROWSERS = "Chrome for Android, Safari for iOS, Chrome 109.0 (Windows)"
+BROWSERS = "Chrome for Android, Safari iPhone, Chrome 109.0"   # топ-3 statcounter, Browser Version, Беларусь, 08.2022–08.2026
 
 # (ключ, тип, имя, родитель, (left, top, right, bottom))
 NODES = [
     ("operator", "Device", "Сервер туроператора", None, (10, 15, 210, 100)),
-    ("payment", "Device", "Сервер платёжной системы", None, (10, 175, 210, 260)),
-    ("sms", "Device", "Сервер сервиса отправки SMS-кодов", None, (10, 320, 210, 430)),
+    ("payment", "Device", "Сервер платежной системы", None, (10, 175, 210, 260)),
+    ("sms", "Device", "Сервер сервиса отправки СМС", None, (10, 320, 210, 430)),
     ("inet", "Device", "Интернет-канал", None, (330, 290, 500, 345)),
     ("guest", "Device", "Рабочая станция гостя", None, (10, 590, 270, 840)),
     ("guest_b", "ExecutionEnvironment", BROWSERS, "guest", (25, 665, 245, 815)),
@@ -33,15 +33,16 @@ NODES = [
     ("director_b", "ExecutionEnvironment", BROWSERS, "director", (805, 72, 1055, 200)),
     ("printer", "Device", "Сетевой принтер", None, (980, 235, 1160, 290)),
     ("db", "Device", "Сервер базы данных, архитектура Intel, разрядность x64", None, (700, 470, 1120, 840)),
-    ("db_os", "ExecutionEnvironment", "ОС Ubuntu Server 24.04.3 LTS (x64)", "db", (720, 555, 1090, 815)),
+    ("db_os", "ExecutionEnvironment", "ОС Ubuntu Server 26.04.1 LTS (x64)", "db", (720, 555, 1090, 815)),
     ("dbms", "ExecutionEnvironment", "СУБД PostgreSQL 18 (x64)", "db_os", (740, 615, 1065, 790)),
     ("db_sql", "Artifact", "touragency_list.sql", "dbms", (790, 700, 1015, 750)),
     ("web", "Device", "Сервер веб-приложений, архитектура Intel, разрядность x64", None, (1240, 290, 1870, 840)),
-    ("web_os", "ExecutionEnvironment", "ОС Ubuntu Server 24.04.3 LTS (x64)", "web", (1260, 375, 1845, 815)),
-    ("nginx", "ExecutionEnvironment", "Веб-сервер Nginx 1.28 (обратный прокси)", "web_os", (1280, 440, 1820, 525)),
-    ("kestrel", "ExecutionEnvironment", "Сервер приложений ASP.NET Core Kestrel 10.0", "web_os", (1280, 545, 1820, 630)),
-    ("dotnet", "ExecutionEnvironment", "Среда выполнения .NET 10.0 LTS (x64), фреймворк ASP.NET Core 10.0", "web_os", (1280, 650, 1820, 735)),
-    ("web_deb", "Artifact", "touragency_store.deb", "web_os", (1280, 750, 1820, 795)),
+    ("web_os", "ExecutionEnvironment", "ОС Ubuntu Server 26.04.1 LTS (x64)", "web", (1260, 375, 1845, 815)),
+    ("nginx", "ExecutionEnvironment", "Веб-сервер Nginx 1.30.6 (обратный прокси)", "web_os", (1280, 435, 1820, 497)),
+    ("kestrel", "ExecutionEnvironment", "Сервер приложений Kestrel (ASP.NET Core 10.0)", "web_os", (1280, 511, 1820, 573)),
+    ("dotnet", "ExecutionEnvironment", "Среда выполнения .NET Runtime 10.0 LTS (x64)", "web_os", (1280, 587, 1820, 649)),
+    ("aspnet", "ExecutionEnvironment", "Фреймворк ASP.NET Core 10.0", "web_os", (1280, 663, 1820, 725)),
+    ("web_deb", "Artifact", "touragency_store.deb", "web_os", (1280, 745, 1820, 792)),
 ]
 # (начало, конец, подпись)
 LINKS = [
