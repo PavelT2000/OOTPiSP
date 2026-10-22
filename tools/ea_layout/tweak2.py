@@ -1,6 +1,6 @@
 import json, sys
 import ea
-objs, links = ea.load("../../models/Touragency.qea")
+objs, links = ea.load("../../Lab1/Touragency.qea")
 d = json.load(open(sys.argv[1]))
 NEW = {201: "Подтвердить бронирование тура", 202: "Получить оплату за тур"}
 for k, (x, y, w, h) in d["pos"].items():

@@ -3,7 +3,7 @@ import json, sys, os
 import numpy as np
 import ea, opt
 from opt import Model
-objs, links = ea.load(os.path.join(os.path.dirname(__file__), "..", "..", "models", "Touragency.qea"))
+objs, links = ea.load(os.path.join(os.path.dirname(__file__), "..", "..", "Lab1", "Touragency.qea"))
 for k, (x, y, w, h) in json.load(open(sys.argv[1]))["pos"].items():
     objs[int(k)].update(cx=x, cy=y, w=w, h=h)
 m = Model(objs, links)

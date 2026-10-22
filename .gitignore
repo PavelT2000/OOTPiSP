@@ -1,7 +1,7 @@
 .venv/
 __pycache__/
 *.pyc
-models/backups/
+backups/
 tools/ea_layout/out/
 tools/ea_layout/out_*.txt
 *.ldb

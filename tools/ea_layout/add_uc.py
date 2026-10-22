@@ -4,7 +4,7 @@ import json, sys, sqlite3, uuid, random, re, datetime, shutil
 import numpy as np
 import ea
 from opt import Model
-QEA = "../../models/Touragency.qea"
+QEA = "../../Lab1/Touragency.qea"
 spec = json.loads(sys.argv[1]); save = len(sys.argv) > 2 and sys.argv[2] == "save"
 objs, links = ea.load(QEA)
 tmp = {}

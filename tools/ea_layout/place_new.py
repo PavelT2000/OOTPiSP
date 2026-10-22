@@ -3,7 +3,7 @@ import json, itertools
 import numpy as np
 import ea
 from opt import Model
-objs, links = ea.load("../../models/Touragency.qea")
+objs, links = ea.load("../../Lab1/Touragency.qea")
 NEW = {201: "Подтвердить бронирование тура", 202: "Получить оплату за тур"}
 for k, n in NEW.items():
     w, h = ea.min_size(n); objs[k] = dict(name=n, type="UseCase", w=w, h=h, cx=0, cy=0)

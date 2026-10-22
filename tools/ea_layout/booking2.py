@@ -1,6 +1,6 @@
 import json, sys
 import ea
-objs, links = ea.load("../../models/Touragency.qea")
+objs, links = ea.load("../../Lab1/Touragency.qea")
 del objs[44]
 links = [l for l in links if 44 not in (l["s"], l["e"]) and l["id"] != 73]
 objs[51]["w"], objs[51]["h"] = ea.min_size(objs[51]["name"])

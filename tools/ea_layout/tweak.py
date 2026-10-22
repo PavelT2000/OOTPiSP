@@ -1,6 +1,6 @@
 import json, sys
 import ea
-objs, links = ea.load("../../models/Touragency.qea")
+objs, links = ea.load("../../Lab1/Touragency.qea")
 d = json.load(open(sys.argv[1]))
 for k, (x, y, w, h) in d["pos"].items(): objs[int(k)].update(cx=x, cy=y, w=w, h=h)
 for k, (x, y) in json.loads(sys.argv[2]).items(): objs[int(k)].update(cx=x, cy=y)

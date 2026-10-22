@@ -1,11 +1,12 @@
 """Deployment-диаграмма (лаба 2) для модели EA (.qea). Координаты: y вниз, 1 ед. = 1 px при масштабе 100%.
 python deploy.py            — проверка раскладки и рендер в out/deploy.png
-python deploy.py save       — то же + запись диаграммы в models/Touragency.qea (бэкап в models/backups/)"""
+python deploy.py save       — то же + запись диаграммы в Lab2/Touragency.qea (бэкап в backups/)"""
 import datetime, math, os, random, re, shutil, sqlite3, sys, uuid
 from PIL import Image, ImageDraw, ImageFont
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-QEA = os.path.join(HERE, "..", "..", "models", "Touragency.qea")
+QEA = os.path.join(HERE, "..", "..", "Lab2", "Touragency.qea")
+BACKUPS = os.path.join(HERE, "..", "..", "backups")
 W, H = 1880, 870                      # видимая область диаграммы на весь экран при 100%
 DEPTH = 10                            # глубина 3D-грани узла
 LH = 21                               # высота строки Times New Roman 14pt
@@ -196,9 +197,9 @@ def render(out):
 
 
 def save():
-    os.makedirs(os.path.join(os.path.dirname(QEA), "backups"), exist_ok=True)
+    os.makedirs(BACKUPS, exist_ok=True)
     stamp = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
-    shutil.copy2(QEA, os.path.join(os.path.dirname(QEA), "backups", f"Touragency.before-deploy.{stamp}.qea"))
+    shutil.copy2(QEA, os.path.join(BACKUPS, f"Touragency.before-deploy.{stamp}.qea"))
     db = sqlite3.connect(QEA); db.row_factory = sqlite3.Row
     now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     guid = lambda: "{" + str(uuid.uuid4()).upper() + "}"

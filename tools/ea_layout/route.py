@@ -2,7 +2,7 @@
 import heapq, math, sys, sqlite3
 import ea
 CID = int(sys.argv[1]); STEP = 10
-objs, links = ea.load("../../models/Touragency.qea")
+objs, links = ea.load("../../Lab1/Touragency.qea")
 L = next(l for l in links if l["id"] == CID)
 W, H = 1880, 880
 nx, ny = W // STEP, H // STEP
@@ -55,7 +55,7 @@ while i < len(pts) - 2:
 bends = pts[1:-1]
 print("изгибы:", bends)
 if len(sys.argv) > 2 and sys.argv[2] == "save":
-    db = sqlite3.connect("../../models/Touragency.qea")
+    db = sqlite3.connect("../../Lab1/Touragency.qea")
     db.execute("update t_diagramlinks set Path=? where ConnectorID=?", ("".join(f"{round(x)}:{-round(y)}$" for x, y in bends), CID))
     db.commit(); print("записано,", db.execute("pragma integrity_check").fetchone()[0])
 # картинка

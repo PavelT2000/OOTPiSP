@@ -2,7 +2,7 @@
 import json, os, sys, time
 import ea
 from opt import Model
-QEA = os.path.join(os.path.dirname(__file__), "..", "..", "models", "Touragency.qea")
+QEA = os.path.join(os.path.dirname(__file__), "..", "..", "Lab1", "Touragency.qea")
 os.makedirs("out", exist_ok=True)
 objs, links = ea.load(QEA)
 for o in objs.values():

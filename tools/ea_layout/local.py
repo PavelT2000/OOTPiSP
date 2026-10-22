@@ -3,7 +3,7 @@ import json, math, random, sys, os
 import numpy as np
 import ea
 from opt import Model
-objs, links = ea.load("../../models/Touragency.qea")
+objs, links = ea.load("../../Lab1/Touragency.qea")
 NEW = {201: "Подтвердить бронирование тура", 202: "Получить оплату за тур"}
 init = json.load(open("out/new.json"))
 SEED = {201: (1680, 60), 202: (1840, 75), 17: (1690, 230), 16: (1820, 320), 18: (1720, 380), 14: (1560, 410)}
