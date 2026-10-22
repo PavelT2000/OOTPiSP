@@ -5,3 +5,4 @@ models/backups/
 tools/ea_layout/out/
 tools/ea_layout/out_*.txt
 *.ldb
+tools/ea_deploy/out/
